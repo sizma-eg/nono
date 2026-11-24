@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manu 🌹❤️</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Cairo',sans-serif}
+body{background:#fff0f6;overflow-x:hidden;text-align:center;color:#5a1932}
+.flowers{position:fixed;inset:0;pointer-events:none;z-index:0}
+.flower{position:absolute;animation:fall linear infinite}
+@keyframes fall{0%{transform:translateY(-60px) rotate(0)}100%{transform:translateY(110vh) rotate(360deg)}}
+.container{position:relative;z-index:1;max-width:560px;margin:auto;padding:20px}
+.card{background:#fff;border-radius:28px;padding:26px 20px;margin:20px 0;box-shadow:0 10px 30px rgba(255,105,180,.3);border:2px solid #ffc2dd;position:relative;overflow:hidden}
+.card:before{content:"🌸 🌹 🌷 🌸 🌹";position:absolute;top:6px;left:0;right:0;font-size:18px;opacity:.7}
+.langBar{display:flex;gap:8px;justify-content:center;margin-bottom:5px}
+.langBar button{border:2px solid #ffc2dd;background:#fff;color:#ff2e7a;padding:8px 14px;border-radius:999px;font-weight:900;cursor:pointer}
+.langBar button.active{background:#ff2e7a;color:#fff}
+h1{font-size:42px;color:#ff2e7a;line-height:1.1;margin-top:10px}
+h1 span{font-size:18px;display:block;color:#ff8ab5;margin-top:5px}
+.timer{display:flex;gap:10px;justify-content:center;margin:18px 0}
+.timer div{background:#ff2e7a;color:#fff;border-radius:16px;padding:12px 0;width:72px}
+.timer b{font-size:24px;display:block}
+.timer span{font-size:12px}
+.gallery{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:15px 0}
+.gallery img{width:100%;height:220px;object-fit:cover;border-radius:20px;border:3px solid #ffc2dd}
+.gallery img.wide{grid-column:span 2;height:300px}
+.caption{grid-column:span 2;background:#fff0f7;border-radius:16px;padding:12px;font-weight:700;color:#ff2e7a}
+.letter{text-align:left;line-height:2;font-size:17px;white-space:pre-line}
+.btn{border:0;cursor:pointer;border-radius:999px;padding:16px 30px;font-size:19px;font-weight:900;margin:8px}
+.yes{background:#ff2e7a;color:#fff;box-shadow:0 8px 20px rgba(255,46,122,.4)}
+.no{background:#fff;color:#ff2e7a;border:2px solid #ff8ab5;position:relative}
+#loveResult{display:none;margin-top:20px;font-size:22px;font-weight:900;color:#ff2e7a;line-height:1.6}
+.bouquet{font-size:42px;line-height:1.4}
+footer{font-size:13px;opacity:.7;padding:15px}
+</style>
+</head>
+<body>
+<div class="flowers" id="flowers"></div>
+<div class="container">
+  <div class="langBar">
+    <button id="btn-ar" onclick="setLang('ar')">🇪🇬 عربي</button>
+    <button id="btn-en" onclick="setLang('en')">🇺🇸 English</button>
+    <button id="btn-pt" class="active" onclick="setLang('pt')">🇧🇷 Português</button>
+  </div>
+
+  <div class="card">
+    <h1>Manu 🌹❤️<span data-t="subtitle">Tem algo que eu precisava te dizer</span></h1>
+    <div class="bouquet">🌹🌷🌸💐🌹🌷🌸💐🌹</div>
+    <p style="margin:12px 0;font-size:18px" data-t="intro">Uma surpresinha de mim para você.. vai até o final 🥺💗</p>
+    <img src="manu1.jpg" style="width:100%;height:320px;object-fit:cover;border-radius:22px;border:3px solid #ffc2dd" alt="Manu">
+    <p style="margin-top:12px" data-t="underPhoto">Olha essa linda.. foi por ela que eu fiz esse site inteiro 🫶</p>
+    <div class="bouquet">🌸🌹🌷🌸🌹🌷🌸</div>
+  </div>
+
+  <div class="card">
+    <h2 data-t="timerTitle">⏳ Estamos juntos há</h2>
+    <p style="margin-top:8px" data-t="timerSub">Desde 22 de novembro às 3 da manhã.. o primeiro dia que te conheci</p>
+    <div class="timer">
+      <div><b id="d">0</b><span data-t="day">dias</span></div>
+      <div><b id="h">0</b><span data-t="hour">horas</span></div>
+      <div><b id="m">0</b><span data-t="min">min</span></div>
+      <div><b id="s">0</b><span data-t="sec">seg</span></div>
+    </div>
+    <p data-t="timerBottom">E cada segundo foi melhor que o anterior 💗</p>
+    <div class="bouquet">🌹🌹🌹</div>
+  </div>
+
+  <div class="card">
+    <h2 data-t="galleryTitle">🌸 Todas as suas fotos são lindas.. mas essas 🌸</h2>
+    <div class="gallery">
+      <img src="manu2.jpg" alt="Manu">
+      <img src="manu3.jpg" alt="Manu">
+      <div class="caption" data-t="cap1">Esse sorriso roubou meu coração desde o primeiro dia 💕</div>
+      <img src="manu4.jpg" alt="Manu">
+      <img src="manu5.jpg" alt="Manu">
+      <img src="manu6.jpg" alt="Manu">
+      <div class="caption" data-t="cap2">Em cada foto.. mais linda que a anterior 🥺</div>
+      <img src="manu7.jpg" class="wide" alt="Us">
+      <div class="caption" data-t="cap3">E essa.. a melhor foto da minha vida inteira ❤️<br>Nossa primeira foto juntos</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2 data-t="letterTitle">💌 Uma carta para você, Manu</h2>
+    <div class="bouquet">💐🌹💐🌹💐</div>
+    <div class="letter" data-t="letter"></div>
+    <div class="bouquet" style="margin-top:12px">🌹🌷🌸🌷🌹</div>
+  </div>
+
+  <div class="card">
+    <h2 style="font-size:26px" data-t="question">Então.. você aceita ser minha namorada? 🥺❤️</h2>
+    <div class="bouquet">🌹🌹🌹🌹🌹</div>
+    <p style="margin:12px 0" data-t="questionSub">Pensa com calma.. mas meu coração está esperando sua resposta</p>
+    <button class="btn yes" onclick="sayYes()" data-t="yesBtn">Sim.. eu aceito 💗</button>
+    <button class="btn no" id="noBtn" onmouseover="runAway()" data-t="noBtn">Não 🙈</button>
+    <div id="loveResult" data-t="loveResult"></div>
+  </div>
+  <footer data-t="footer">Feito com amor.. de mim para você, Manu 💌🌹</footer>
+</div>
+
+<script>
+const T={
+ar:{subtitle:"في حاجة كان لازم أقولها من بدري",intro:"مفاجأة صغيرة مني ليكي.. كمّلي للآخر 🥺💗",underPhoto:"شوفي القمر ده.. هو ده اللي خلاني أعمل الموقع ده كله 🫶",timerTitle:"⏳ وإحنا مع بعض بقالنا",timerSub:"من يوم 22 نوفمبر الساعة 3 الفجر.. أول يوم عرفتك فيه",day:"يوم",hour:"ساعة",min:"دقيقة",sec:"ثانية",timerBottom:"وكل ثانية فيهم كانت أحلى من اللي قبلها 💗",galleryTitle:"🌸 كل صورك حلوة.. بس دول بالذات 🌸",cap1:"الضحكة دي هي اللي خطفت قلبي من أول يوم 💕",cap2:"في كل صورة.. أحلى من اللي قبلها 🥺",cap3:"ودي بقى.. أحلى صورة في حياتي كلها ❤️<br>أول صورة لينا مع بعض",letterTitle:"💌 جواب ليكي يا Manu",letter:"يا Manu..\n\nمن أول يوم كلمتك فيه، يوم 22 نوفمبر الساعة 3 بالليل، وأنا حاسس إن في حاجة مختلفة.\nمكنتش صدفة.. كان قلبي بيدور عليكي من زمان ولقاكي.\n\nالـ 52 ساعة اللي فاتوا دول غيّروا فيا حاجات كتير،\nبقيت بستنى رسايلك، وبضحك لوحدي لما افتكر كلامك،\nوبحس إن اليوم ناقص لو مكلمتكيش.\n\nManu، أنا بحبك.\nبحبك بجد، من قلبي، ومش عايز اليوم ده يعدي من غير ما تعرفي.\n\nخليكي دايماً موجودة.. 🫶🌹",question:"فـ.. تقبلي تكوني حبيبتي؟ 🥺❤️",questionSub:"فكري براحتك.. بس قلبي مستني إجابتك",yesBtn:"أيوه.. موافقة 💗",noBtn:"لأ 🙈",loveResult:"🎉🎉🎉<br>بجد؟؟؟ أنا أسعد واحد في الدنيا دلوقتي!!<br>بحبك يا Manu ❤️❤️❤️<br><span style='font-size:40px'>💋💗🌹</span>",footer:"اتعمل بحب.. مني ليكي يا Manu 💌🌹"},
+en:{subtitle:"There's something I had to tell you",intro:"A small surprise from me to you.. scroll to the end 🥺💗",underPhoto:"Look at this beauty.. she's the reason I made this whole website 🫶",timerTitle:"⏳ We've been together for",timerSub:"Since November 22nd at 3 AM.. the first day I met you",day:"days",hour:"hours",min:"mins",sec:"secs",timerBottom:"And every second was better than the one before 💗",galleryTitle:"🌸 All your photos are beautiful.. but these ones 🌸",cap1:"That smile stole my heart from the first day 💕",cap2:"In every photo.. more beautiful than the last 🥺",cap3:"And this one.. the best photo of my whole life ❤️<br>Our first photo together",letterTitle:"💌 A letter for you, Manu",letter:"My Manu..\n\nFrom the first day I talked to you, November 22nd at 3 AM, I felt something different.\nIt wasn't a coincidence.. my heart was looking for you for so long and finally found you.\n\nThese last 52 hours changed so much in me,\nI started waiting for your messages, smiling alone when I remember your words.\n\nManu, I love you.\nI really love you, from my heart.\n\nStay with me always.. 🫶🌹",question:"So.. will you be my girlfriend? 🥺❤️",questionSub:"Take your time.. but my heart is waiting for your answer",yesBtn:"Yes.. I accept 💗",noBtn:"No 🙈",loveResult:"🎉🎉🎉<br>Really??? I'm the happiest person in the world right now!!<br>I love you Manu ❤️❤️❤️<br><span style='font-size:40px'>💋💗🌹</span>",footer:"Made with love.. from me to you, Manu 💌🌹"},
+pt:{subtitle:"Tem algo que eu precisava te dizer",intro:"Uma surpresinha de mim para você.. vai até o final 🥺💗",underPhoto:"Olha essa linda.. foi por ela que eu fiz esse site inteiro 🫶",timerTitle:"⏳ Estamos juntos há",timerSub:"Desde 22 de novembro às 3 da manhã.. o primeiro dia que te conheci",day:"dias",hour:"horas",min:"min",sec:"seg",timerBottom:"E cada segundo foi melhor que o anterior 💗",galleryTitle:"🌸 Todas as suas fotos são lindas.. mas essas 🌸",cap1:"Esse sorriso roubou meu coração desde o primeiro dia 💕",cap2:"Em cada foto.. mais linda que a anterior 🥺",cap3:"E essa.. a melhor foto da minha vida inteira ❤️<br>Nossa primeira foto juntos",letterTitle:"💌 Uma carta para você, Manu",letter:"Minha Manu..\n\nDesde o primeiro dia que falei com você, 22 de novembro às 3 da manhã, eu senti algo diferente.\nNão foi coincidência.. meu coração estava te procurando há muito tempo e finalmente te encontrou.\n\nEssas últimas 52 horas mudaram muita coisa em mim,\nComecei a esperar suas mensagens, a sorrir sozinho quando lembro das suas palavras,\nE a sentir que meu dia fica incompleto se eu não falar com você.\n\nManu, eu te amo.\nEu te amo de verdade, do fundo do meu coração, e não queria que esse dia passasse sem você saber.\n\nFica comigo para sempre.. 🫶🌹",question:"Então.. você aceita ser minha namorada? 🥺❤️",questionSub:"Pensa com calma.. mas meu coração está esperando sua resposta",yesBtn:"Sim.. eu aceito 💗",noBtn:"Não 🙈",loveResult:"🎉🎉🎉<br>Sério??? Eu sou a pessoa mais feliz do mundo agora!!<br>Eu te amo Manu ❤️❤️❤️<br><span style='font-size:40px'>💋💗🌹</span>",footer:"Feito com amor.. de mim para você, Manu 💌🌹"}
+};
+function setLang(l){
+  document.querySelectorAll('[data-t]').forEach(el=>{let k=el.getAttribute('data-t');if(T[l][k])el.innerHTML=T[l][k];});
+  document.querySelectorAll('.langBar button').forEach(b=>b.classList.remove('active'));
+  document.getElementById('btn-'+l).classList.add('active');
+  document.documentElement.lang=l; document.documentElement.dir=l==='ar'?'rtl':'ltr';
+  document.querySelector('.letter').style.textAlign=l==='ar'?'right':'left';
+}
+setLang('pt');
+const box=document.getElementById('flowers');
+const emojis=['🌹','🌸','🌷','💐','🌺','🩷','💗'];
+for(let i=0;i<45;i++){let s=document.createElement('div');s.className='flower';s.innerHTML=emojis[Math.floor(Math.random()*emojis.length)];s.style.left=Math.random()*100+'vw';s.style.fontSize=(14+Math.random()*22)+'px';s.style.animationDuration=(3+Math.random()*4)+'s';s.style.animationDelay=(Math.random()*4)+'s';box.appendChild(s);}
+const start=new Date('2026-11-22T03:00:00');
+function update(){let diff=new Date()-start;document.getElementById('d').innerText=Math.floor(diff/86400000);document.getElementById('h').innerText=Math.floor(diff/3600000)%24;document.getElementById('m').innerText=Math.floor(diff/60000)%60;document.getElementById('s').innerText=Math.floor(diff/1000)%60;}
+setInterval(update,1000);update();
+function sayYes(){document.getElementById('loveResult').style.display='block';document.getElementById('noBtn').style.display='none';for(let i=0;i<60;i++){let c=document.createElement('div');c.className='flower';c.innerHTML=['🌹','🌸','❤️'][Math.floor(Math.random()*3)];c.style.left=Math.random()*100+'vw';c.style.top='40%';c.style.fontSize='28px';c.style.position='fixed';c.style.animation='fall 2.5s linear';document.body.appendChild(c);setTimeout(()=>c.remove(),2500);}window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'});}
+function runAway(){let b=document.getElementById('noBtn');b.style.position='fixed';b.style.left=Math.random()*70+'vw';b.style.top=Math.random()*70+'vh';}
+</script>
+</body>
+</html>s
